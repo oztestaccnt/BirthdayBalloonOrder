@@ -1,0 +1,117 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="Northwind" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My Application</title>
+
+    <link href="~/css/bootstrap.css" rel="stylesheet" />
+    <link href="~/css/jquery-ui.css" rel="stylesheet" />
+    <link href="~/css/animate.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Exo+2" rel="stylesheet">
+
+    <link href="~/css/MyStyles.css" type="text/css" rel="stylesheet" />
+
+  
+    <!--Fun fonts-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+
+
+
+
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+
+</head>
+
+<body>
+    <!--Navbar-->
+    <!--Navigation Bar-->
+    <nav class="navbar navbar-default navbar-fixed-top navbar-inverse" id="navbar">
+
+        <!--HomeBtnOnTheHeader-->
+        <a href="#" class="navbar-brand" style="font-family:'Gloria Hallelujah', cursive;">Northwind</a>
+        <!--HamburgerMenu-->
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#collapse-menu">
+                    <!--Reference to the id for the collapse bar-->
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @* @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })*@
+
+            </div>
+            <!--Links on the Header-->
+            <div class="collapse navbar-collapse topnav-left" id="collapse-menu">
+
+                <!--Bellow will makes links to collapse with window resize-->
+                <ul class="nav navbar-nav navbar-left">
+                    <!--DropDown: it requires JQuery script-->
+                    <li>
+                        <a class="dropdown-toggle fas fa-book" data-toggle="dropdown" href="#"> Products<b class="caret"></b></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="https://getbootstrap.com/docs/3.3/css/">Browse Categories</a></li>
+                            <li><a href="@Url.Action("Category", "Products")">Product Search</a></li>
+                            <li class="divider"></li>
+                            <li><a href="@Url.Action("Discount", "Products")">Current Discounts</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="dropdown-toggle fas fa-user" data-toggle="dropdown" href="#"> Customers<b class="caret"></b></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="@Url.Action("SignIn", "Customer")">Sign In</a></li>
+                            <li><a href="@Url.Action("Register","Customer")">Register</a></li>
+                            <li class="divider"></li>
+                            <li><a href="@Url.Action("Account","Customer")">Your Account</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="dropdown-toggle fas fa-chalkboard" data-toggle="dropdown" href="#"> My Lesson<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("Homework 1", "Homework1", "Lessons")</li>
+                            <li>@Html.ActionLink("Homework 2", "Homework2", "Lessons")</li>
+                            <li>@Html.ActionLink("Lesson 1-2", "Lesson1_2", "Lessons")</li>
+                            <li>@Html.ActionLink("Lesson 7-9", "Lesson7_9", "Lessons")</li>
+                            <li>@Html.ActionLink("Lesson 9-10", "Lesson9_10", "Lessons")</li>
+                            <li>@Html.ActionLink("Lesson 12", "Lesson12","Lessons")</li>
+                        </ul>
+                    </li>
+
+                    <!--ProductSearch searchBox-->
+
+                    <li class="form-group hidden-xs">
+                        <input type="text" class="form-control" data-toggle="collapse" data-target="bs-navbar-collapse" placeholder="Product Search">
+                    </li>
+
+                    <!--Search Button-->
+                    <li><button type="button" class="btn btn-default navbar-btn hidden-xs">Search</button></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right glyphicon1">
+                    <!--Sign Out-->
+                    <!-- <li class="glyphicon glyphicon-log-out" style="color:mintcream; padding-top:16px; padding-left:7px"></li>-->
+                    <li class="SignOutBtn"><a href="#" class="fas fa-sign-out-alt">Sign Out</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    @RenderBody()
+
+    @*<div class="container body-content">
+            @RenderBody()
+            <hr />
+            <footer>
+                <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            </footer>
+        </div>*@
+
+
+
+    @Scripts.Render("~/bundles/bootstrap")
+    @Styles.Render("~/Content/css")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
